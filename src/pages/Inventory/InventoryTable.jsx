@@ -25,7 +25,7 @@ function InventoryTable() {
         console.log(editProduct)
 
         const { name, unitPrice, uom, sellingPrice, minStock, maxStock } = editProduct
-        axios.put(`http://localhost:8000/api/product/${editProduct.id}`, { name, unitPrice, uom, sellingPrice, minStock, maxStock })
+        axios.put(`https://inventory-management-backend-3qxr.onrender.com/api/product/${editProduct.id}`, { name, unitPrice, uom, sellingPrice, minStock, maxStock })
             .then(response => {
                 if (response.status === 200) {
                     toast.success(response.data.message)
@@ -43,7 +43,7 @@ function InventoryTable() {
 
     const handleDelete = (id) => {
         axios
-            .delete(`http://localhost:8000/api/product/${id}`)
+            .delete(`https://inventory-management-backend-3qxr.onrender.com/api/product/${id}`)
             .then(response => {
                 console.log(response.data.message)
                 toast.error(response.data.message)
@@ -53,7 +53,7 @@ function InventoryTable() {
             })
     }
     useEffect(() => {
-        axios.get('http://localhost:8000/api/product')
+        axios.get('https://inventory-management-backend-3qxr.onrender.com/api/product')
             .then(({ data }) => { setInventoryList(data); })
 
     }, [])

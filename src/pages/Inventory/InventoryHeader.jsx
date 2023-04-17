@@ -21,7 +21,7 @@ const InventoryHeader = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         axios
-            .post('http://localhost:8000/api/product', { ...newProduct })
+            .post('https://inventory-management-backend-3qxr.onrender.com/api/product', { ...newProduct })
             .then(response => {
                 console.log(response.status) //TEST
                 if (response.status === 200) {

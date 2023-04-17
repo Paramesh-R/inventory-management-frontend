@@ -25,7 +25,7 @@ function BuyerTable() {
         console.log(editBuyer)
 
         const { name, email, phone } = editBuyer
-        axios.put(`http://localhost:8000/api/buyer/${editBuyer.id}`, { name, email, phone })
+        axios.put(`https://inventory-management-backend-3qxr.onrender.com/api/buyer/${editBuyer.id}`, { name, email, phone })
             .then(response => {
                 if (response.status === 200) {
                     toast.success(response.data.message)
@@ -43,7 +43,7 @@ function BuyerTable() {
 
     const handleDelete = (id) => {
         axios
-            .delete(`http://localhost:8000/api/buyer/${id}`)
+            .delete(`https://inventory-management-backend-3qxr.onrender.com/api/buyer/${id}`)
             .then(response => {
                 console.log(response.data.message)
                 toast.error(response.data.message)
@@ -53,7 +53,7 @@ function BuyerTable() {
             })
     }
     useEffect(() => {
-        axios.get('http://localhost:8000/api/buyer')
+        axios.get('https://inventory-management-backend-3qxr.onrender.com/api/buyer')
             .then(({ data }) => { setBuyerList(data); })
 
     }, [])

@@ -20,12 +20,12 @@ const SalesHeader = () => {
     useEffect(() => {
         // For Buyer Dropdown - 2(a). Buyer Dropdown - GET SUPPLIER LIST (ID and VALUE)
         axios
-            .get('http://localhost:8000/api/customer')
+            .get('https://inventory-management-backend-3qxr.onrender.com/api/customer')
             .then(({ data }) => { setCustomers(data.map(({ id, name }) => { return { "value": id, "label": name } })) })
 
         // For Product Dropdown - 2(b). Add Product Dropdown - GET PRODUCT LIST filtered
         axios
-            .get('http://localhost:8000/api/product')
+            .get('https://inventory-management-backend-3qxr.onrender.com/api/product')
             .then(({ data }) => {
                 /* setProducts(data.map(({ id, name }) => {
                     console.log(data)
@@ -111,7 +111,7 @@ const SalesHeader = () => {
     const handleSubmit = (e) => {           // Create Purchase Order
         e.preventDefault();
         axios
-            .post('http://localhost:8000/api/sales', {
+            .post('https://inventory-management-backend-3qxr.onrender.com/api/sales', {
                 'customer': selectedCustomer,
                 /* 
                 items: [{

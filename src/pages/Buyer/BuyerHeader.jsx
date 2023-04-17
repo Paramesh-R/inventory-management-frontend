@@ -21,7 +21,7 @@ const BuyerHeader = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         axios
-            .post('http://localhost:8000/api/buyer', { ...newBuyer })
+            .post('https://inventory-management-backend-3qxr.onrender.com/api/buyer', { ...newBuyer })
             .then(response => {
                 console.log(response.status) //TEST
                 if (response.status === 200) {

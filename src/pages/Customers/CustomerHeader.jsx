@@ -20,7 +20,7 @@ const CustomerHeader = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         axios
-            .post('http://localhost:8000/api/customer', { ...newCustomer })
+            .post('https://inventory-management-backend-3qxr.onrender.com/api/customer', { ...newCustomer })
             .then(response => {
                 console.log(response.status) //TEST
                 if (response.status === 200) {

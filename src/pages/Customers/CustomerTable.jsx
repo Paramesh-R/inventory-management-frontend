@@ -25,7 +25,7 @@ function CustomerTable() {
         console.log(editCustomer)
 
         const { name, email, phone } = editCustomer
-        axios.put(`http://localhost:8000/api/customer/${editCustomer.id}`, { name, email, phone })
+        axios.put(`https://inventory-management-backend-3qxr.onrender.com/api/customer/${editCustomer.id}`, { name, email, phone })
             .then(response => {
                 if (response.status === 200) {
                     toast.success(response.data.message)
@@ -43,7 +43,7 @@ function CustomerTable() {
 
     const handleDelete = (id) => {
         axios
-            .delete(`http://localhost:8000/api/customer/${id}`)
+            .delete(`https://inventory-management-backend-3qxr.onrender.com/api/customer/${id}`)
             .then(response => {
                 console.log(response.data.message)
                 toast.error(response.data.message)
@@ -53,7 +53,7 @@ function CustomerTable() {
             })
     }
     useEffect(() => {
-        axios.get('http://localhost:8000/api/customer')
+        axios.get('https://inventory-management-backend-3qxr.onrender.com/api/customer')
             .then(({ data }) => { setCustomerList(data); })
 
     }, [])

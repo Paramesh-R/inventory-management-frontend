@@ -30,7 +30,7 @@ const PurchaseTable = () => {
     console.log(editCustomer)
 
     const { name, email, phone } = editCustomer
-    axios.put(`http://localhost:8000/api/customer/${editCustomer.id}`, { name, email, phone })
+    axios.put(`https://inventory-management-backend-3qxr.onrender.com/api/customer/${editCustomer.id}`, { name, email, phone })
       .then(response => {
         if (response.status === 200) {
           toast.success(response.data.message)
@@ -48,7 +48,7 @@ const PurchaseTable = () => {
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:8000/api/purchase/${id}`)
+      .delete(`https://inventory-management-backend-3qxr.onrender.com/api/purchase/${id}`)
       .then(response => {
         console.log(response.data.message)
         toast.error(response.data.message)
@@ -61,7 +61,7 @@ const PurchaseTable = () => {
   const [purchaseOrderList, setPurchaseOrderList] = useState([]);     // State for Purchase Orders
 
   useEffect(() => {                                                   // GET all Purchase Order details from Database
-    axios.get('http://localhost:8000/api/purchase')
+    axios.get('https://inventory-management-backend-3qxr.onrender.com/api/purchase')
       .then(({ data }) => { setPurchaseOrderList(data); })
     console.log(purchaseOrderList[0])
   }, [])
